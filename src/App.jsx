@@ -1,7 +1,7 @@
 import * as React from 'react'
-import StoriesListContainer from '../containers/StoriesListContainer'
-import StoryContainer from '../containers/StoryContainer'
-import { getStories } from '../actions'
+import StoriesListContainer from './containers/StoriesListContainer'
+import StoryContainer from './containers/StoryContainer'
+import { getStories } from './actions'
 
 import {
   BrowserRouter as Router,

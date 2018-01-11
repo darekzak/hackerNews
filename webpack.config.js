@@ -14,14 +14,14 @@ const cssLoader = {
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: "./src/index.jsx",
+  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'app.[hash].bundle.js',
     publicPath: '/'
   },
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
   },
   devServer: {
     historyApiFallback: true,
@@ -29,10 +29,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        test: /\.(jsx?|tsx?)$/,
+        use: "awesome-typescript-loader",
         exclude: /(node_modules)/
       },
+      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       {
         test: /\.css$/,
         use: extractCss.extract({
