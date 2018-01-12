@@ -4,16 +4,16 @@ const initialState = {
   stories: {
     items: [],
     isFetching: false,
-    error: ''
+    error: '',
   },
   story: {
     isFetching: false,
     data: {},
-    error: ''
-  }
+    error: '',
+  },
 }
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case actionType.GET_STORIES:
       return {
@@ -22,7 +22,7 @@ export default function (state = initialState, action) {
           ...state.stories,
           isFetching: true,
           error: '',
-        }
+        },
       }
     case actionType.GET_STORIES_SUCCEEDED:
       return {
@@ -31,7 +31,7 @@ export default function (state = initialState, action) {
           items: action.stories,
           isFetching: false,
           error: '',
-        }
+        },
       }
     case actionType.GET_STORIES_FAILED:
       return {
@@ -40,7 +40,7 @@ export default function (state = initialState, action) {
           ...state.stories,
           isFetching: false,
           error: action.error,
-        }
+        },
       }
     case actionType.GET_STORY:
       return {
@@ -49,9 +49,9 @@ export default function (state = initialState, action) {
           isFetching: true,
           error: '',
           data: {
-            id: action.storyId
+            id: action.storyId,
           },
-        }
+        },
       }
     case actionType.GET_STORY_SUCCEEDED:
       return {
@@ -59,8 +59,8 @@ export default function (state = initialState, action) {
         story: {
           isFetching: false,
           error: '',
-          data: action.story
-        }
+          data: action.story,
+        },
       }
     case actionType.GET_STORY_FAILED:
       return {
@@ -69,7 +69,7 @@ export default function (state = initialState, action) {
           ...state.story,
           error: action.error,
           isFetching: false,
-        }
+        },
       }
     default:
       return state

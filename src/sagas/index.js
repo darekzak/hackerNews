@@ -25,7 +25,6 @@ export function* getStorySaga({ storyId }) {
   } catch (error) {
     yield put(actions.getStoryFailed(error.message))
   }
-
 }
 
 function* watchGetStory() {
@@ -33,8 +32,5 @@ function* watchGetStory() {
 }
 
 export default function* rootSaga() {
-  yield all([
-    watchGetStories(),
-    watchGetStory(),
-  ])
+  yield all([watchGetStories(), watchGetStory()])
 }

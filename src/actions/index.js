@@ -13,25 +13,25 @@ export const getStories = () => ({
 
 export const getStoriesSucceeded = stories => ({
   type: actionType.GET_STORIES_SUCCEEDED,
-  stories
+  stories,
 })
 
 export const getStoriesFailed = error => ({
   type: actionType.GET_STORIES_FAILED,
-  error
+  error,
 })
 
 export const getStory = storyId => ({
   type: actionType.GET_STORY,
-  storyId
+  storyId,
 })
 
 export const getStorySucceeded = story => ({
   type: actionType.GET_STORY_SUCCEEDED,
-  story
+  story,
 })
 
 export const getStoryFailed = error => ({
   type: actionType.GET_STORY_FAILED,
-  error
+  error,
 })

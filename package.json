@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --port 8080",
     "test": "jest",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "prettier": "prettier --config .prettierrc --write './src/**/*.{js,jsx,ts,tsx,json,css,scss}'"
   },
   "jest": {
     "automock": false,
