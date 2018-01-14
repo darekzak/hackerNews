@@ -2,10 +2,17 @@ import * as React from 'react'
 import { connect } from 'react-redux'
 import Story from '../components/Story'
 import { getStory } from '../actions'
+import { store } from '../index'
+
+type Props = {
+  storyId: number
+  story: any
+}
 
 class StoryContainer extends React.Component {
+  props: Props
   componentDidMount() {
-    this.props.getStory(this.props.storyId)
+    store.dispatch(getStory(this.props.storyId))
   }
 
   render() {
@@ -13,7 +20,7 @@ class StoryContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state: any, props: any) => {
   const { storyId } = props.match.params
   return {
     story: state.story,
@@ -21,8 +28,4 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  getStory: storyId => dispatch(getStory(storyId)),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(StoryContainer)
+export default connect(mapStateToProps)(StoryContainer)

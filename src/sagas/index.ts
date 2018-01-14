@@ -1,5 +1,6 @@
 import * as actions from '../actions'
 import { put, takeEvery, all, call } from 'redux-saga/effects'
+import { Action } from '../types'
 
 export const API_URL = 'https://hacker-news.firebaseio.com/v0/'
 
@@ -14,10 +15,10 @@ function* getStoriesSaga() {
 }
 
 function* watchGetStories() {
-  yield takeEvery(actions.actionType.GET_STORIES, getStoriesSaga)
+  yield takeEvery(Action.GET_STORIES, getStoriesSaga)
 }
 
-export function* getStorySaga({ storyId }) {
+export function* getStorySaga({ storyId }: any) {
   try {
     const response = yield call(fetch, `${API_URL}item/${storyId}.json`)
     const story = yield response.json()
@@ -28,7 +29,8 @@ export function* getStorySaga({ storyId }) {
 }
 
 function* watchGetStory() {
-  yield takeEvery(actions.actionType.GET_STORY, getStorySaga)
+  Action.GET_STORY
+  yield takeEvery(Action.GET_STORY, getStorySaga)
 }
 
 export default function* rootSaga() {

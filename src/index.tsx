@@ -9,13 +9,12 @@ import rootSaga from './sagas'
 import 'react-mdl/extra/material.css'
 
 const sagaMiddleware = createSagaMiddleware()
-
-const store = createStore(reducer, applyMiddleware(sagaMiddleware))
+export const store = createStore(reducer, applyMiddleware(sagaMiddleware))
 sagaMiddleware.run(rootSaga)
 
 render(
   <Provider store={store}>
-    <App dispatch={store.dispatch} />
+    <App />
   </Provider>,
   document.getElementById('app'),
 )

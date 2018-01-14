@@ -1,6 +1,6 @@
-import { actionType } from '../actions'
+import { State, Action } from '../types'
 
-const initialState = {
+const initialState: State = {
   stories: {
     items: [],
     isFetching: false,
@@ -13,9 +13,9 @@ const initialState = {
   },
 }
 
-export default function(state = initialState, action) {
+export default function(state: State = initialState, action: any) {
   switch (action.type) {
-    case actionType.GET_STORIES:
+    case Action.GET_STORIES:
       return {
         ...state,
         stories: {
@@ -24,7 +24,7 @@ export default function(state = initialState, action) {
           error: '',
         },
       }
-    case actionType.GET_STORIES_SUCCEEDED:
+    case Action.GET_STORIES_SUCCEEDED:
       return {
         ...state,
         stories: {
@@ -33,7 +33,7 @@ export default function(state = initialState, action) {
           error: '',
         },
       }
-    case actionType.GET_STORIES_FAILED:
+    case Action.GET_STORIES_FAILED:
       return {
         ...state,
         stories: {
@@ -42,7 +42,7 @@ export default function(state = initialState, action) {
           error: action.error,
         },
       }
-    case actionType.GET_STORY:
+    case Action.GET_STORY:
       return {
         ...state,
         story: {
@@ -53,7 +53,7 @@ export default function(state = initialState, action) {
           },
         },
       }
-    case actionType.GET_STORY_SUCCEEDED:
+    case Action.GET_STORY_SUCCEEDED:
       return {
         ...state,
         story: {
@@ -62,7 +62,7 @@ export default function(state = initialState, action) {
           data: action.story,
         },
       }
-    case actionType.GET_STORY_FAILED:
+    case Action.GET_STORY_FAILED:
       return {
         ...state,
         story: {
