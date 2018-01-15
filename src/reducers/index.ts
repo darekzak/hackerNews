@@ -1,4 +1,4 @@
-import { State, Action } from '../types'
+import { State, ActionType, Action } from '../types'
 
 const initialState: State = {
   stories: {
@@ -13,9 +13,9 @@ const initialState: State = {
   },
 }
 
-export default function(state: State = initialState, action: any) {
+export default function(state: State = initialState, action: Action) {
   switch (action.type) {
-    case Action.GET_STORIES:
+    case ActionType.GET_STORIES:
       return {
         ...state,
         stories: {
@@ -24,7 +24,7 @@ export default function(state: State = initialState, action: any) {
           error: '',
         },
       }
-    case Action.GET_STORIES_SUCCEEDED:
+    case ActionType.GET_STORIES_SUCCEEDED:
       return {
         ...state,
         stories: {
@@ -33,7 +33,7 @@ export default function(state: State = initialState, action: any) {
           error: '',
         },
       }
-    case Action.GET_STORIES_FAILED:
+    case ActionType.GET_STORIES_FAILED:
       return {
         ...state,
         stories: {
@@ -42,7 +42,7 @@ export default function(state: State = initialState, action: any) {
           error: action.error,
         },
       }
-    case Action.GET_STORY:
+    case ActionType.GET_STORY:
       return {
         ...state,
         story: {
@@ -53,7 +53,7 @@ export default function(state: State = initialState, action: any) {
           },
         },
       }
-    case Action.GET_STORY_SUCCEEDED:
+    case ActionType.GET_STORY_SUCCEEDED:
       return {
         ...state,
         story: {
@@ -62,7 +62,7 @@ export default function(state: State = initialState, action: any) {
           data: action.story,
         },
       }
-    case Action.GET_STORY_FAILED:
+    case ActionType.GET_STORY_FAILED:
       return {
         ...state,
         story: {

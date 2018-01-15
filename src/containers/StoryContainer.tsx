@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import Story from '../components/Story'
 import { getStory } from '../actions'
 import { store } from '../index'
+import { Story as StoryType, State } from '../types'
 
 type Props = {
   storyId: number
-  story: any
+  story: StoryType
 }
 
 class StoryContainer extends React.Component {
@@ -20,7 +21,7 @@ class StoryContainer extends React.Component {
   }
 }
 
-const mapStateToProps = (state: any, props: any) => {
+const mapStateToProps = (state: State, props: { match: { params: { storyId: number } } }) => {
   const { storyId } = props.match.params
   return {
     story: state.story,
