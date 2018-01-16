@@ -10,37 +10,31 @@ import {
 } from '../types'
 import { ActionType } from '../types'
 
-type GetStories = () => GetStoriesAction
-export const getStories: GetStories = () => ({
+export const getStories = (): GetStoriesAction => ({
   type: ActionType.GET_STORIES,
 })
 
-type GetStoriesSucceeded = (x: Stories) => GetStoriesSucceededAction
-export const getStoriesSucceeded: GetStoriesSucceeded = stories => ({
+export const getStoriesSucceeded = (stories: Stories): GetStoriesSucceededAction => ({
   type: ActionType.GET_STORIES_SUCCEEDED,
   stories,
 })
 
-type GetStoriesFailed = (x: string) => GetStoriesFailedAction
-export const getStoriesFailed: GetStoriesFailed = error => ({
+export const getStoriesFailed = (error: string): GetStoriesFailedAction => ({
   type: ActionType.GET_STORIES_FAILED,
   error,
 })
 
-type GetStory = (x: number) => GetStoryAction
-export const getStory: GetStory = storyId => ({
+export const getStory = (storyId: number): GetStoryAction => ({
   type: ActionType.GET_STORY,
   storyId,
 })
 
-type GetStorySucceeded = (x: Story) => GetStorySucceededAction
-export const getStorySucceeded: GetStorySucceeded = story => ({
+export const getStorySucceeded = (story: Story): GetStorySucceededAction => ({
   type: ActionType.GET_STORY_SUCCEEDED,
   story,
 })
 
-type GetStoryFailed = (x: string) => GetStoryFailedAction
-export const getStoryFailed: GetStoryFailed = error => ({
+export const getStoryFailed = (error: string): GetStoryFailedAction => ({
   type: ActionType.GET_STORY_FAILED,
   error,
 })
