@@ -7,6 +7,7 @@ import createSagaMiddleware from 'redux-saga'
 import App from './App'
 import rootSaga from './sagas'
 import 'react-mdl/extra/material.css'
+import 'react-mdl/extra/material.js'
 
 const sagaMiddleware = createSagaMiddleware()
 export const store = createStore(reducer, applyMiddleware(sagaMiddleware))
