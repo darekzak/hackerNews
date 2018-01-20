@@ -8,7 +8,6 @@ const initialState: State = {
   },
   story: {
     isFetching: false,
-    data: {},
     error: '',
   },
 }

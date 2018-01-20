@@ -23,7 +23,7 @@ export type GetStoriesAction = {
 
 export type GetStoriesSucceededAction = {
   type: ActionType.GET_STORIES_SUCCEEDED
-  stories: Stories
+  stories: Stories['items']
 }
 
 export type GetStoriesFailedAction = {
@@ -38,7 +38,7 @@ export type GetStoryAction = {
 
 export type GetStorySucceededAction = {
   type: ActionType.GET_STORY_SUCCEEDED
-  story: Story
+  story: Story['data']
 }
 
 export type GetStoryFailedAction = {

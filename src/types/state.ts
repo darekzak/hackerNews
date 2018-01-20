@@ -10,7 +10,8 @@ export type Stories = {
 }
 
 export type Story = {
-  data: {
+  data?: {
+    id: number
     [x: string]: any
   }
   isFetching: boolean

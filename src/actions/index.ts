@@ -14,7 +14,7 @@ export const getStories = (): GetStoriesAction => ({
   type: ActionType.GET_STORIES,
 })
 
-export const getStoriesSucceeded = (stories: Stories): GetStoriesSucceededAction => ({
+export const getStoriesSucceeded = (stories: Stories['items']): GetStoriesSucceededAction => ({
   type: ActionType.GET_STORIES_SUCCEEDED,
   stories,
 })
@@ -29,7 +29,7 @@ export const getStory = (storyId: number): GetStoryAction => ({
   storyId,
 })
 
-export const getStorySucceeded = (story: Story): GetStorySucceededAction => ({
+export const getStorySucceeded = (story: Story['data']): GetStorySucceededAction => ({
   type: ActionType.GET_STORY_SUCCEEDED,
   story,
 })
